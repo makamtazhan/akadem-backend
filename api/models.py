@@ -6,3 +6,13 @@ class Status(models.Model):
 class Major(models.Model):
     name = models.CharField(max_length=255)
 
+class Manager(models.Model):
+    name = models.CharField(max_length=255)
+
+class Program(models.Model):
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, blank=True, null=True)
+    major = models.ForeignKey(Major, on_delete=models.CASCADE, blank=True, null=True)
+    name = models.CharField(max_length=255) 
+    text = models.CharField(max_length=255)
+    requirements = models.CharField(max_length=2048)
+
